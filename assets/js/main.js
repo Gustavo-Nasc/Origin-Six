@@ -36,14 +36,21 @@ const swiper = new Swiper('.swiper', {
     },
 
     mousewheel: true,
-    keyboard: true
+    keyboard: true,
+
+    breakpoints: {
+        767: {
+            slidesPerView: 2,
+            setWrapperSize: true
+        }
+    }
 });
 
 /*===== SCROLL REVEAL =====*/
 const scrollReveal = ScrollReveal({
     origin: 'top',
     distance: '30px',
-    duration: 700,
+    duration: 500,
     reset: true
 })
 
