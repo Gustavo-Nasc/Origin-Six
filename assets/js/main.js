@@ -16,17 +16,16 @@ for (const link of navLink) {
     })
 }
 
-/*===== REMOVE MENU MOBILE =====*/
-const header = document.getElementById('header')
-const navHeight = header.offsetHeight
-
-window.addEventListener('scroll', function () {
+/*===== CHANGE MENU ON SCROLL =====*/
+function changeHeader() {
+    const header = document.getElementById('header')
+    const navHeight = header.offsetHeight
     if (this.window.scrollY >= navHeight) {
         header.classList.add('header-scroll')
     } else {
         header.classList.remove('header-scroll')
     }
-})
+}
 
 /*===== SWIPER TESTIMONIALS =====*/
 const swiper = new Swiper('.swiper', {
@@ -54,7 +53,26 @@ scrollReveal.reveal(
     #about .image, #about .text,
     #services header, #services .card,
     #testimonials header, #testimonials .content-testimonials,
-    #contact .text, #contact .links
+    #contact .text, #contact .links,
+    footer .brand, footer .social
     `,
     { interval: 100 }
 )
+
+/*===== SCROLL TO TOP =====*/
+function scrollTop() {
+    const scrollTop = document.querySelector('.scroll-top')
+
+    window.addEventListener('scroll', function () {
+        if (window.scrollY >= 560) {
+            scrollTop.classList.add('show-scroll-top')
+        } else {
+            scrollTop.classList.remove('show-scroll-top')
+        }
+    })
+}
+
+window.addEventListener('scroll', function () {
+    changeHeader()
+    scrollTop()
+})
